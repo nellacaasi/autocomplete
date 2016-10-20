@@ -2,6 +2,7 @@ package controllers;
 
 public class BruteAutoComplete implements AutoComplete {
 
+	
 	@Override
 	public double weightOf(String term) {
 		// TODO Auto-generated method stub
