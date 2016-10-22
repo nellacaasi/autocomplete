@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import models.Term;
-
-public class InputReadAndParse {		
+public class InputReadAndParse2 {		
 	public static void main(String[] args) throws IOException{
 		readIn();
 	}
@@ -21,24 +20,17 @@ public class InputReadAndParse {
 		        sourceData.openStream()));
 
 		  String inputLine;
-		  double weight;
-		  String word;
-		  String delims = "[	]";
 		  
-		  List<Term> rawList = new ArrayList<Term>();
-		  in.readLine();
-		  inputLine = null;
-		  while ((inputLine = in.readLine()) != null) {
-			    String[] splitTerms = inputLine.split(delims);
-			    weight = Double.parseDouble(splitTerms[0]);
-			    word = splitTerms[1];
-		      rawList.add(new Term (weight, word));
-		  }
+		  HashMap<String,String> rawList = new HashMap<String,String>();
+		  while ((inputLine = in.readLine()) != null)
+		    {
+		        String[] parts = inputLine.split("/t", 2);
+		        String key = parts[0];
+		        String value = parts[1];
+		        rawList.put(key, value);
+		    }
 		  
-		  in.close();
-		  
-		  for (int i = 0; i < rawList.size(); i++){
-			  System.out.println(rawList.get(i));
-		  }
+		  in.close();		  
 	}
 }
+
