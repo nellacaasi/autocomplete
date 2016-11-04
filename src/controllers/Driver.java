@@ -56,7 +56,8 @@ public class Driver {
 	}
 
 	public void runReturnMatches() {
-		
+		String prefix = input.nextLine();
+		//System.out.println(BruteAutoComplete.bestMatch(prefix));
 	}
 
 	private int mainMenu(){ //Main Menu
