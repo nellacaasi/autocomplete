@@ -5,13 +5,23 @@ public class BruteAutoComplete implements AutoComplete {
 	
 	@Override
 	public double weightOf(String term) {
-		// TODO Auto-generated method stub
+			for(int i = 0; i < InputReadAndParse.getRawList().size(); i++){
+				if(term.equals(InputReadAndParse.getRawList().get(i).getWord())){
+					return InputReadAndParse.getRawList().get(i).getWeight();
+				}
+			}
 		return 0;
 	}
 
 	@Override
 	public String bestMatch(String prefix) {
-		// TODO Auto-generated method stub
+		if(prefix != null){
+			for(int i = 0; i < InputReadAndParse.getRawList().size();i++){
+				if(InputReadAndParse.getRawList().get(i).getWord().startsWith(prefix)){
+					return InputReadAndParse.getRawList().get(i).getWord();
+				}
+			}
+		}
 		return null;
 	}
 

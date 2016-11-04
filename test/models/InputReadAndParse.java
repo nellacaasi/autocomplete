@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class InputReaderAndParseTest {
+public class InputReadAndParse {
 
 	@Test
 	public void test() {
