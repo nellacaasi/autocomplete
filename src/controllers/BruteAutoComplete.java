@@ -1,5 +1,10 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import models.Term;
+
 public class BruteAutoComplete implements AutoComplete {
 
 	
@@ -13,7 +18,6 @@ public class BruteAutoComplete implements AutoComplete {
 		return 0;
 	}
 
-	@Override
 	public String bestMatch(String prefix) {
 		if(prefix != null){
 			for(int i = 0; i < InputReadAndParse.getRawList().size();i++){
@@ -27,7 +31,15 @@ public class BruteAutoComplete implements AutoComplete {
 
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
-		// TODO Auto-generated method stub
+		List<String> matchesList = new ArrayList<String>();
+		
+		for (int i = 0;k < matchesList.size(); i++)
+		{
+			if (InputReadAndParse.getRawList().get(i).getWord().startsWith(prefix)){
+				matchesList.add(InputReadAndParse.getRawList().get(i).getWord());
+			}
+			return matchesList;
+		}
 		return null;
 	}
 
