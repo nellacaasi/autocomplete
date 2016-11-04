@@ -29,7 +29,6 @@ public class BruteAutoComplete implements AutoComplete {
 		return null;
 	}
 
-	@Override
 	public Iterable<String> matches(String prefix, int k) {
 		List<String> matchesList = new ArrayList<String>();
 		

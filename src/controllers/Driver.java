@@ -46,7 +46,13 @@ public class Driver {
     }
 
 	public void runReturnListOfMatches() {
-		
+		System.out.println("Type in a prefix: ");
+        System.out.print("Enter Option ==>> ");
+		String prefix = input.nextLine();
+		prefix = input.nextLine();
+		System.out.println("How many matches would you like?: ");
+        System.out.print("Enter Option ==>> ");
+		int k = input.nextInt();
 	}
 
 	public void runReturnMatches() {
