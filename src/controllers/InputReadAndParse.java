@@ -12,11 +12,6 @@ import models.Term;
 public class InputReadAndParse {
 	private static List<Term> rawList = new ArrayList<Term>();
 	
-	public static void main(String[] args) throws IOException{
-		InputReadAndParse a = new InputReadAndParse();
-		a.readIn();
-	}
-	
 	public  void readIn() throws IOException {
 		URL sourceData = new URL("https://wit-computing.github.io/algorithms-2016/topic04/book-2/data/wiktionary.txt");
 		  BufferedReader in = new BufferedReader(new InputStreamReader(sourceData.openStream()));
