@@ -53,11 +53,24 @@ public class Driver {
 		System.out.println("How many matches would you like?: ");
         System.out.print("Enter Option ==>> ");
 		int k = input.nextInt();
-	}
+		
+		int matches = 0;
+		
+		for(int i = 0; i < InputReadAndParse.getRawList().size(); i++){
+				if (InputReadAndParse.getRawList().get(i).getWord().startsWith(prefix)){
+					System.out.println(InputReadAndParse.getRawList().get(i).getWord());
+					matches ++;
+				}
+			}
+		}
 
 	public void runReturnMatches() {
+		System.out.println("Type in a prefix: ");
+        System.out.print("Enter Option ==>> ");
+		BruteAutoComplete brute = new BruteAutoComplete();
 		String prefix = input.nextLine();
-		//System.out.println(BruteAutoComplete.bestMatch(prefix));
+		prefix = input.nextLine();
+		System.out.println(brute.bestMatch(prefix));
 	}
 
 	private int mainMenu(){ //Main Menu
