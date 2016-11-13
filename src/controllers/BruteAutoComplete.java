@@ -23,7 +23,7 @@ public class BruteAutoComplete implements AutoComplete {
 				}
 			}
 		}
-		return 0;
+		return 0.0;
 	}
 
 	public String bestMatch(String prefix) { //returns the best match for a prefix if not null
