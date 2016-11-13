@@ -28,5 +28,4 @@ public class Term {
 	public void setWord(String word) {
 		this.word = word;
 	}
-
 }

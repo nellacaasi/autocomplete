@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 
  *  
  * @author Isaac Allen - Student No: 20070915
- * @version 1.0 (04/11/2016)
+ * @version 2.0 (04/11/2016)
  */
 
 public class Driver {
@@ -29,6 +29,25 @@ public class Driver {
 		Driver driver = new Driver();
 		driver.runMainMenu();
 	}
+	
+	private int mainMenu(){ //Main Menu
+    	System.out.println("**************************");
+        System.out.println("* AutoComplete Main Menu *");
+        System.out.println("* Isaac Allen            *");
+        System.out.println("* Student No: 20070915   *");
+        System.out.println("**************************");
+        System.out.println("----------------------------------");
+        System.out.println("- Main Menu -");
+        System.out.println("");
+        System.out.println("  1) Display Brute AutoComplete Options");
+        System.out.println("  2) Display Quick AutoComplete Options (Not Implemented)");
+        System.out.println("----------------------------------");
+        System.out.println("  0) Exit");
+        System.out.println("");
+        System.out.print("Enter Option ==>> ");
+        int option = input.nextInt();
+        return option;
+	    }	
 	
 	private void runMainMenu() throws Exception{ //Runs Main Menu
         int option = mainMenu();
@@ -47,7 +66,21 @@ public class Driver {
         System.out.println("App Terminated...");
         
     }
-
+	
+	private int bruteSubMenu(){ //Brute AutoComplete Sub Menu
+        System.out.println("----------------------------------");
+        System.out.println("- BruteAutoComplete Sub Menu -");
+        System.out.println("");
+        System.out.println("  1) Show the best match for a prefix");
+        System.out.println("  2) Show a certain amount of matches for a prefix");
+        System.out.println("----------------------------------");
+        System.out.println("  0) Exit");
+        System.out.println("");
+        System.out.print("Enter Option ==>> ");
+        int option = input.nextInt();
+        return option;
+    }
+	
 	private void runBruteSubMenu() throws IOException {
 		int option = bruteSubMenu();
 		brute = new BruteAutoComplete();
@@ -64,22 +97,6 @@ public class Driver {
 			option = bruteSubMenu();
 		}
 	}
-	
-	private int bruteSubMenu(){ //Main Menu
-        System.out.println("----------------------------------");
-        System.out.println("- BruteAutoComplete Sub Menu -");
-        System.out.println("");
-        System.out.println("  1) Show the best match for a prefix");
-        System.out.println("  2) Show a certain amount of matches for a prefix");
-        System.out.println("----------------------------------");
-        System.out.println("  0) Exit");
-        System.out.println("");
-        System.out.print("Enter Option ==>> ");
-        int option = input.nextInt();
-        return option;
-    }
-	
-	
 
 	public void runBruteKMatches(){
 		System.out.println("Type in a prefix: ");
@@ -89,7 +106,7 @@ public class Driver {
 		System.out.println("How many matches would you like?: ");
         System.out.print("Enter Option ==>> ");
 		int k = input.nextInt();
-		System.out.println("Here first "+k+" matches for the prefix \""+prefix+"\"");
+		System.out.print("Here first "+k+" matches for the prefix \""+prefix+"\": ");
 		System.out.println(brute.matches(prefix, k));
 		}
 
@@ -98,26 +115,7 @@ public class Driver {
         System.out.print("Enter Option ==>> ");
 		String prefix = input.nextLine();
 		prefix = input.nextLine();
-		System.out.println("Here is the best match for the prefix \""+prefix+"\"");
+		System.out.print("Here is the best match for the prefix \""+prefix+"\": ");
 		System.out.println(brute.bestMatch(prefix));
 	}
-
-	private int mainMenu(){ //Main Menu
-    	System.out.println("**************************");
-        System.out.println("* AutoComplete Main Menu *");
-        System.out.println("* Isaac Allen            *");
-        System.out.println("* Student No: 20070915   *");
-        System.out.println("**************************");
-        System.out.println("----------------------------------");
-        System.out.println("- Main Menu -");
-        System.out.println("");
-        System.out.println("  1) Display Brute AutoComplete Options");
-        System.out.println("  2) Display Quick AutoComplete Options (Not Implemented)");
-        System.out.println("----------------------------------");
-        System.out.println("  0) Exit");
-        System.out.println("");
-        System.out.print("Enter Option ==>> ");
-        int option = input.nextInt();
-        return option;
-	    }
 }

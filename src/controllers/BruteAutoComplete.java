@@ -15,16 +15,18 @@ public class BruteAutoComplete implements AutoComplete {
 	}
 	
 	@Override
-	public double weightOf(String term) {
+	public double weightOf(String term) { //returns weight of a term if not null, else returns 0
+		if(term != null){
 			for(int i = 0; i < data.getRawList().size(); i++){
 				if(term.equals(data.getRawList().get(i).getWord())){
 					return data.getRawList().get(i).getWeight();
 				}
 			}
+		}
 		return 0;
 	}
 
-	public String bestMatch(String prefix) {
+	public String bestMatch(String prefix) { //returns the best match for a prefix if not null
 		if(prefix != null){
 			for(int i = 0; i < data.getRawList().size();i++){
 				if(data.getRawList().get(i).getWord().startsWith(prefix)){
@@ -35,15 +37,20 @@ public class BruteAutoComplete implements AutoComplete {
 		return null;
 	}
 
-	public Iterable<String> matches(String prefix, int k) {
+	public Iterable<String> matches(String prefix, int k) { //returns k matches for a specified prefix if not null
 		matchesList = new ArrayList<String>();
 		
-		for(Term term : data.getRawList()){
-			if((term.getWord().startsWith(prefix))&&(matchesList.size() < k)){
-				matchesList.add(term.getWord());
+		if(prefix != null){
+			for(Term term : data.getRawList()){
+				if((term.getWord().startsWith(prefix))&&(matchesList.size() < k)){
+					matchesList.add(term.getWord());
+				}
 			}
+			return matchesList;
 		}
-		return matchesList;
+		else{
+			return null;
+		}
 	}
 
 }
