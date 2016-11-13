@@ -20,7 +20,7 @@ public class DataTest {
 	}
 
 	@Test
-	public void testSize() {
+	public void testSize() { //Tests that the size of the ArrayList actually has 10,000 terms
 		assertEquals(data.getRawList().size(), 10000);
 	}
 
