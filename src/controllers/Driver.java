@@ -1,4 +1,5 @@
 package controllers;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -17,9 +18,12 @@ import java.util.Scanner;
 
 public class Driver {
 	private Scanner input;
+	BruteAutoComplete brute;
+	Data data;
 	
-	public Driver(){
+	public Driver() throws IOException{
         input = new Scanner(System.in);
+		brute = new BruteAutoComplete();
 	}
 	
 	public static void main(String[] args) throws Exception { //Main Starting Method
@@ -45,7 +49,7 @@ public class Driver {
         
     }
 
-	public void runReturnListOfMatches() {
+	public void runReturnListOfMatches(){
 		System.out.println("Type in a prefix: ");
         System.out.print("Enter Option ==>> ");
 		String prefix = input.nextLine();
@@ -54,20 +58,12 @@ public class Driver {
         System.out.print("Enter Option ==>> ");
 		int k = input.nextInt();
 		
-		int matches = 0;
-		
-		for(int i = 0; i < InputReadAndParse.getRawList().size(); i++){
-				if (InputReadAndParse.getRawList().get(i).getWord().startsWith(prefix)){
-					System.out.println(InputReadAndParse.getRawList().get(i).getWord());
-					matches ++;
-				}
-			}
+		System.out.println(brute.matches(prefix, k));
 		}
 
-	public void runReturnMatches() {
+	public void runReturnMatches(){
 		System.out.println("Type in a prefix: ");
         System.out.print("Enter Option ==>> ");
-		BruteAutoComplete brute = new BruteAutoComplete();
 		String prefix = input.nextLine();
 		prefix = input.nextLine();
 		System.out.println(brute.bestMatch(prefix));
